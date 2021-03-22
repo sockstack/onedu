@@ -5,20 +5,21 @@ namespace App\Http\Controllers\V1\Auth;
 use App\Dto\UserDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Auth\LoginRequest;
-use App\Http\Requests\V1\Auth\RegisterReqeust;
+use App\Http\Requests\V1\Auth\RegisterRequest;
 use App\Services\IUserService;
 use App\Util\ApiStatus;
 use App\Util\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class UserController extends Controller
 {
     /**
-     * @param RegisterReqeust $reqeust
+     * @param RegisterRequest $request
      * @param IUserService $service
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function Register(RegisterReqeust $request, IUserService $service): \Illuminate\Http\JsonResponse
+    public function Register(RegisterRequest $request, IUserService $service): JsonResponse
     {
         $dto = new UserDto();
         $dto->name = $request->get("name");
@@ -35,9 +36,9 @@ class AuthController extends Controller
     /**
      * @param LoginRequest $request
      * @param IUserService $service
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function Login(LoginRequest $request, IUserService $service): \Illuminate\Http\JsonResponse
+    public function Login(LoginRequest $request, IUserService $service): JsonResponse
     {
         $dto = new UserDto();
         $dto->username = $request->get("username");

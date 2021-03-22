@@ -6,7 +6,7 @@ namespace App\Dto;
 
 use App\Models\Devices;
 
-class UserDto
+class AdminDto
 {
     public $id;
     public $name;
@@ -16,5 +16,5 @@ class UserDto
     public $updated_at;
     public $created_at;
     public $deleted_at;
-    public $device_name = Devices::WEB;
+    public $device_name = Devices::ADMIN_WEB;
 }

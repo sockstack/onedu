@@ -2,16 +2,13 @@
 
 namespace App\Providers;
 
-use App\Models\User;
+use App\Models\Admin;
 use App\Repositories\AdminRepository;
-use App\Repositories\UserRepository;
 use App\Services\impl\AdminServiceImpl;
 use App\Services\IAdminService;
-use App\Services\impl\UserServiceImpl;
-use App\Services\IUserService;
 use Illuminate\Support\ServiceProvider;
 
-class UserServiceProvider extends ServiceProvider
+class AdminServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -31,8 +28,8 @@ class UserServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $this->app->bind(IUserService::class, function ($app) {
-            return new UserServiceImpl(new UserRepository(new User()));
+        $this->app->bind(IAdminService::class, function ($app) {
+            return new AdminServiceImpl(new AdminRepository(new Admin()));
         });
     }
 }

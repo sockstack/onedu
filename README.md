@@ -15,3 +15,15 @@
 ```shell
 git merge --no-ff
 ```
+## composer
+
+```shell
+# 设置阿里云composer源
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+```
+
+## 认证
+使用laravel框架的自带的认证包
+```shell
+composer require laravel/sanctum
+```

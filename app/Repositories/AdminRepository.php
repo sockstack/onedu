@@ -5,11 +5,10 @@ namespace App\Repositories;
 
 
 use App\Dto\AdminDto;
-use App\Models\File;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 
-class UserRepository
+class AdminRepository
 {
     private $model;
 
@@ -24,16 +23,16 @@ class UserRepository
      * @param AdminDto $dto
      * @return bool
      */
-    public function CreateUser(AdminDto $dto): bool
+    public function CreateAdmin(AdminDto $dto): bool
     {
         return $this->model->fill(collect($dto)->toArray())->save();
     }
 
     /**
      * @param $username
-     * @return User
+     * @return Admin
      */
-    public function FindUserByUsername($username) : User
+    public function FindAdminByUsername($username) : Admin
     {
         return $this->model::where("username", $username)->first() ?: $this->model;
     }

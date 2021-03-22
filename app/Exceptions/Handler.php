@@ -46,7 +46,8 @@ class Handler extends ExceptionHandler
             $response = new Response();
             // 自定义返回错误类型
             if($e instanceof NotFoundHttpException) {
-                return response()->json($response->setCode($e->getCode())->setMessage($e->getMessage())->toArray(),
+                return response()->json($response->setCode(ApiStatus::NOTFOUND)
+                    ->setMessage(ApiStatus::Message(ApiStatus::NOTFOUND))->toArray(),
                     404);
             }
 

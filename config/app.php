@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         /*
+         * 第三方插件服务提供这
+         */
+        Lauthz\LauthzServiceProvider::class,
+        /*
          * 业务提供者
          */
         App\Providers\AdminServiceProvider::class,
@@ -233,7 +237,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Enforcer' => Lauthz\Facades\Enforcer::class,
     ],
 
 ];
